@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Rock, paper, scissors</title>
+  </head>
+  <body>
+    <main class="simple-main">
+      <div id="scoreboard" class="scoreboard">
+        <div class="scorecard">
+          <div class="score">
+            <span class="top-score">YOUR SCORE</span>
+            <span id="own-score" class="real-score">0</span>
+          </div>
+        </div>
+        <img class="logo" src="../assets/images/logo.svg" alt="" />
+        <div class="scorecard">
+          <div class="score">
+            <span class="top-score">HOUSE SCORE</span>
+            <span id="house-score" class="real-score">0</span>
+          </div>
+        </div>
+      </div>
+      <div id="buttons" class="buttons-box">
+        <div class="top-buttons">
+          <button id="button-paper" class="button paper"></button>
+          <button id="button-scissors" class="button scissors"></button>
+        </div>
+        <button id="button-rock" class="button rock"></button>
+      </div>
+      <div id="resultdiv" class="result hidediv">
+        <div class="top-buttons-result">
+          <div class="text-selection">
+            <div id="own-selection" class="empty-result"></div>
+            <span>YOU PICKED</span>
+          </div>
+          <div class="text-selection">
+            <div id="house-selection" class="empty-result"></div>
+            <span>THE HOUSE PICKED</span>
+          </div>
+        </div>
+        <div class="win-or-loose">
+          <span id="win-or-loose" class="win-or-loose-txt">YOU WIN</span>
+          <button id="play-again" class="win-or-loose-button">
+            PLAY AGAIN
+          </button>
+        </div>
+      </div>
+      <button id="show-rules" class="to-modal">RULES</button>
+    </main>
+    <div id="modal-simple" class="modal-simple hide">
+      <span class="modal-simple-txt">RULES</span>
+      <img
+        id="hide-rules"
+        class="modal-simple-close"
+        src="../assets/images/icon-close.svg"
+        alt=""
+      />
+    </div>
+    <script src="../js/scripts.js"></script>
+  </body>
+</html>
