@@ -14,7 +14,6 @@ const showRulesElement = document.getElementById('show-rules');
 const hideRulesElement = document.getElementById('hide-rules');
 const rulesElement = document.getElementById('modal-simple');
 const houseChoiceSimpleElement = ['paper', 'rock', 'scissors'];
-const houseChoiceAdvancedElement = ['paper', 'rock', 'scissors', 'lizard', 'spock'];
 const rules = {
     scissors: {
         paper: true,
@@ -48,11 +47,14 @@ const rules = {
         }
 }
 
-/*simple*/
+
 
 let ownScore = 0;
 let houseScore = 0;
 const addChoiceClasses = event => {
+    if (document.body.dataset === 'advanced'){
+        houseChoiceSimpleElement.push('lizard', 'spock')
+    }
     const classButton = event.target.classList[0];
     const classButtonChoice = event.target.classList[1];
     const randomChoiceSimple = Math.floor(Math.random() * houseChoiceSimpleElement.length);
@@ -77,34 +79,9 @@ const addChoiceClasses = event => {
 }
 allButtonsElement.addEventListener('click', addChoiceClasses)
 
-/*avanzado*/
 
-let ownScoreAdvanced = 0;
-let houseScoreAdvanced = 0;
-const addChoiceClassesAdvanced = event => {
-    const classButton = event.target.classList[0];
-    const classButtonChoice = event.target.classList[1];
-    const randomChoiceAdvanced = Math.floor(Math.random() * houseChoiceAdvancedElement.length);
-    const houseChoiceAdvanced = houseChoiceAdvancedElement[randomChoiceAdvanced];
-    allButtonsElement.classList.add('hidediv');
-    ownSelectionElement.classList.remove('empty-result');
-    ownSelectionElement.classList.add(classButtonChoice, classButton);
-    houseSelectionElement.classList.remove('empty-result');
-    houseSelectionElement.classList.add('button', houseChoiceAdvanced)
-    resultDivElement.classList.remove('hidediv');
-    if (rules[event.target.classList[1]][houseChoiceAdvanced] === true) {
-        winOrLooseTextElement.textContent = 'YOU WIN'
-        ownScoreAdvanced += 1;
-    } else if (rules[event.target.classList[1]][houseChoiceAdvanced] === false) {
-        winOrLooseTextElement.textContent = 'YOU LOSE'
-        houseScoreAdvanced += 1;
-    } else {
-        winOrLooseTextElement.textContent = 'TIE'
-    }
-    ownScoreElement.textContent = ownScoreAdvanced;
-    houseScoreElement.textContent = houseScoreAdvanced;
-}
-allButtonsElement.addEventListener('click', addChoiceClassesAdvanced)
+
+
 
 const restart = event => {
     ownSelectionElement.classList.remove(ownSelectionElement.classList[0], ownSelectionElement.classList[1]);
